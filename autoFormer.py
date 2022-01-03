@@ -2,6 +2,8 @@ import os
 from selenium import webdriver
 
 form_link = "https://docs.google.com/forms/d/e/1FAIpQLSeYE5oKTpILggujs0EhdI765ejmhKxECFKYwU6emK2_cwBa7g/viewform"
+# form_link = "https://docs.google.com/forms/d/e/1FAIpQLScSZzLetdC7yvCmpkmn7fVEcMdhSkmpXIGdMTqVcuRmlgnrwQ/formrestricted"
+
 
 person_1_data = {"Last Name" : "Boerhout", "First Name" : "Sean", "ID" : "1860370"}
 all_data = [person_1_data]
@@ -27,6 +29,7 @@ def main():
 if __name__ == "__main__":
   option = webdriver.ChromeOptions()
   option.add_argument("-incognito")
+  # option.add_argument("--headless")
 
   PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
   DRIVER_PATH = os.path.join(PROJECT_ROOT, "chromedriver")
