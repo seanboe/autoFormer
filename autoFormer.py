@@ -1,5 +1,6 @@
 import os
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 form_link = "https://docs.google.com/forms/d/e/1FAIpQLSeYE5oKTpILggujs0EhdI765ejmhKxECFKYwU6emK2_cwBa7g/viewform"
 # form_link = "https://docs.google.com/forms/d/e/1FAIpQLScSZzLetdC7yvCmpkmn7fVEcMdhSkmpXIGdMTqVcuRmlgnrwQ/formrestricted"
@@ -9,13 +10,16 @@ person_1_data = {"Last Name" : "Boerhout", "First Name" : "Sean", "ID" : "186037
 all_data = [person_1_data]
 
 def reset_form():
-  submit_another = browser.find_element_by_xpath('/html/body/div[1]/div[2]/div[1]/div/div[4]/a')
+  submit_another = browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/div/div[4]/a')
   submit_another.click()
 
 def main():
-  textboxes = browser.find_elements_by_class_name("quantumWizTextinputPaperinputInput")
-  checkbox = browser.find_element_by_xpath('//*[@id="i18"]/div[2]')
-  submit_button = browser.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
+  textboxes = browser.find_elements(By.CLASS_NAME, "quantumWizTextinputPaperinputInput")
+  checkbox = browser.find_element(By.XPATH, '//*[@id="i18"]/div[2]')
+  submit_button = browser.find_element(By.XPATH,'//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
+  # textboxes = browser.find_elements_by_class_name("quantumWizTextinputPaperinputInput")
+  # checkbox = browser.find_element_by_xpath('//*[@id="i18"]/div[2]')
+  # submit_button = browser.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
 
   for person in all_data:
     textboxes[0].send_keys(person["Last Name"])
