@@ -17,9 +17,6 @@ def main():
   textboxes = browser.find_elements(By.CLASS_NAME, "quantumWizTextinputPaperinputInput")
   checkbox = browser.find_element(By.XPATH, '//*[@id="i18"]/div[2]')
   submit_button = browser.find_element(By.XPATH,'//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
-  # textboxes = browser.find_elements_by_class_name("quantumWizTextinputPaperinputInput")
-  # checkbox = browser.find_element_by_xpath('//*[@id="i18"]/div[2]')
-  # submit_button = browser.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
 
   for person in all_data:
     textboxes[0].send_keys(person["Last Name"])
